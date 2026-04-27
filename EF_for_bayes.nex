@@ -2031,12 +2031,8 @@ set partition=Names;
 lset applyto=(1) nst=2 rates=invgamma;
 lset applyto=(2) nst=6 rates=invgamma;
 lset applyto=(3) nst=6 rates=invgamma;
-
-link statefreq=(all);
-link revmat=(all) ;
+unlink statefreq=(all) revmat=(all) shape=(all) pinvar=(all) tratio=(all);
 link brlens=(all);
-unlink shape=(all);
-
 mcmcp ngen=10000000 printfreq=1000 samplefreq=1000 nchains=4 nruns=2 temp=0.1 checkpoint=yes checkfreq=5000 stoprule=yes stopval=0.01;
 mcmc;
 sumt conformat=Simple contype=Allcompat relburnin=yes burninfrac=0.25;
